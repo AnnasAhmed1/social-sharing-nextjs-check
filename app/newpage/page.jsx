@@ -4,10 +4,11 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import Temp from "./temp";
 
+let data1;
 let data;
 const YourPage = () => {
-  console.log(data);
-  return <Temp data={data} />;
+  console.log(data1);
+  return <Temp data={data} data1={data1} />;
 };
 
 export default YourPage;
@@ -15,14 +16,15 @@ export default YourPage;
 export async function generateMetadata() {
   const fetchApi = async () => {
     try {
-      const response = await axios.get(`https://fakestoreapi.com/products/1`);
+      const response = await axios.get(
+        `https://fakestoreapi.com/products/${data1 ? data1 : "3"}`
+      );
       return response.data;
-      console.log(response, "nw");
     } catch (error) {
       console.error(error);
     }
   };
-  data = await fetchApi();
+  var data = await fetchApi();
   console.log(data);
   return {
     title: data.title,

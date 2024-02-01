@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { FacebookIcon, FacebookShareButton } from "react-share";
 import axios from "axios";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
-const Temp = ({ data }) => {
+const Temp = ({ data, data1 }) => {
+  const [id, setId] = useState(1);
   const params = useParams();
   const [metadata, setMetadata] = useState({
     title: "",
@@ -16,13 +18,13 @@ const Temp = ({ data }) => {
     try {
       const response = await axios.get(`https://fakestoreapi.com/products/1`);
       return response.data;
-      console.log(response, "nw");
     } catch (error) {
       console.error(error);
     }
   };
   useEffect(() => {
     data = fetchApi();
+    data1 = params.id;
   }, [params.id]);
   return (
     <div>
@@ -32,10 +34,54 @@ const Temp = ({ data }) => {
         <FacebookIcon size={32} round={true} style={{ color: "black" }} />
       </FacebookShareButton>
 
-      {/* Your page content */}
-      <h1>{metadata.title}</h1>
-      <p>{metadata.description}</p>
-      <img src={metadata.ogImage} alt="OG Image" />
+      <Link
+        href="/newpage/1"
+        onClick={() => {
+          setId(1);
+        }}
+      >
+        1
+      </Link>
+      <Link
+        href="/newpage/2"
+        onClick={() => {
+          setId(2);
+        }}
+      >
+        2
+      </Link>
+      <Link
+        href="/newpage/3"
+        onClick={() => {
+          setId(3);
+        }}
+      >
+        3
+      </Link>
+      <Link
+        href="/newpage/4"
+        onClick={() => {
+          setId(4);
+        }}
+      >
+        4
+      </Link>
+      <Link
+        href="/newpage/5"
+        onClick={() => {
+          setId(5);
+        }}
+      >
+        5
+      </Link>
+      <Link
+        href="/newpage/6"
+        onClick={() => {
+          setId(6);
+        }}
+      >
+        6
+      </Link>
     </div>
   );
 };
