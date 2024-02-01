@@ -3,7 +3,7 @@ import React from "react";
 export const metadata = {
   title: "Dubai Daily Deals",
   description: "Dubai Daily Deals",
-};
+}; 
 const Home = () => {
   return (
     <div>
