@@ -11,9 +11,6 @@ export const metadata = {
 const YourPage = () => {
   return (
     <div>
-      <Head>
-        <title>{pageTitle}</title>
-      </Head>
       <h1>new page</h1>
     </div>
   );
