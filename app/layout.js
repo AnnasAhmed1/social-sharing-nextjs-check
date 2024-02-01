@@ -18,4 +18,14 @@ export default function RootLayout({ children }) {
   );
 }
 
-
+// export const generateMetaData = async () => {
+//   const data = fetchApi();
+//   console.log(data.title);
+//   return {
+//     title: "data.title",
+//     description: data.description,
+//     openGraph: {
+//       images: data.image,
+//     },
+//   };
+// };
